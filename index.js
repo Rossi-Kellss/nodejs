@@ -1,12 +1,17 @@
 const express=require('express');
 const app=express();
+
 app.use((req,res,next)=>{
     console.log("hello middleware");
     next();
 
 })
+
+// using template engine
+app.set('view engine','ejs')
+
 app.get('/',(req,res)=>{
-    res.send("home page aayo mugi");
+    res.render("index");
 
 })
 app.get('/side',(req,res)=>{
