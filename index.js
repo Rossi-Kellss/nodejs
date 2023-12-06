@@ -13,5 +13,9 @@ app.get('/side',(req,res)=>{
     res.send("side ho mugi");
 })
 
+// using route paramaters 
+app.get('/users/:name',(req,res)=>{
+    res.send(`hello ${req.params.name}`);
+})
 app.listen(3000);
 
