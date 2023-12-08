@@ -1,21 +1,19 @@
 const express=require('express');
 const app=express();
 
-app.use((req,res,next)=>{
-    console.log("hello middleware");
-    next();
 
-})
 
 // using template engine
-app.set('view engine','ejs')
+app.set('view engine','ejs');
+app.use(express.static('./public'));
+
 
 app.get('/',(req,res)=>{
-    res.render("index");
+    res.render("index",{name:"rossi"});
 
 })
-app.get('/side',(req,res)=>{
-    res.send("side ho mugi");
+app.get('/contact',(req,res)=>{
+    res.render("contact");
 })
 
 // using route paramaters 
